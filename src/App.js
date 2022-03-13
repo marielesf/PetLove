@@ -2,6 +2,34 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    cachorros: [
+      {
+        imagem:
+          "https://www.agrosete.com.br/wp-content/uploads/2017/09/rottweiler_1-2-800x450.jpg",
+        nome: "Luna",
+        idade: "5 meses",
+      },
+      {
+        imagem:
+          "https://www.petelegante.com.br/media/catalog/product/p/i/pijama_doguinhos_amarelo.jpg?pe_fullscreen=https://www.petelegante.com.br/media/catalog/product/p/i/pijama_doguinhos_amarelo.jpg",
+        nome: "Duque",
+        idade: "2 anos",
+      },
+      {
+        imagem:
+          "https://i.pinimg.com/originals/97/b2/aa/97b2aa7ffe670a0fc02699de1daab652.jpg",
+        nome: "Perola",
+        idade: "1 ano a 4 meses",
+      },
+      {
+        imagem:
+          "https://i.pinimg.com/736x/49/c3/f4/49c3f41633d9c05fb0d554f74b24fb94.jpg",
+        nome: "Rex",
+        idade: "1 ano",
+      },
+    ],
+  };
   render() {
     return (
       <div>
@@ -45,46 +73,18 @@ class App extends Component {
             Contrary to popular belief, Lorem Ipsum is not simply random text.
           </p>
           <section className="gallery">
-            <div className="div-img">
-              <img
-                className="img-list"
-                src="https://www.agrosete.com.br/wp-content/uploads/2017/09/rottweiler_1-2-800x450.jpg"
-                alt="filhote de cachorro"
-              />
-              <p>Luna</p>
-              <p>5 meses</p>
-              <button className="box-button">Adotar</button>
-            </div>
-            <div className="div-img">
-              <img
-                className="img-list"
-                src="https://www.petelegante.com.br/media/catalog/product/p/i/pijama_doguinhos_amarelo.jpg?pe_fullscreen=https://www.petelegante.com.br/media/catalog/product/p/i/pijama_doguinhos_amarelo.jpg"
-                alt="cachorro"
-              />
-              <p>Duque</p>
-              <p>2 anos</p>
-              <button className="box-button">Adotar</button>
-            </div>
-            <div className="div-img">
-              <img
-                className="img-list"
-                src="https://i.pinimg.com/originals/97/b2/aa/97b2aa7ffe670a0fc02699de1daab652.jpg"
-                alt="cachorro"
-              />
-              <p>Pérola</p>
-              <p>1 ano e 4 meses</p>
-              <button className="box-button">Adotar</button>
-            </div>
-            <div className="div-img">
-              <img
-                className="img-list"
-                src="https://i.pinimg.com/736x/49/c3/f4/49c3f41633d9c05fb0d554f74b24fb94.jpg"
-                alt="filhote de cachorro"
-              />
-              <p>Rex</p>
-              <p>1 ano</p>
-              <button className="box-button">Adotar</button>
-            </div>
+            {this.state.cachorros.map((item) => (
+              <div className="div-img">
+                <img
+                  className="img-list"
+                  src={item.imagem}
+                  alt="filhote de cachorro"
+                />
+                <p key={item}>{item.nome}</p>
+                <p key={item}>{item.idade}</p>
+                <button className="box-button">Adotar</button>
+              </div>
+            ))}
           </section>
           <a href="#">Veja Mais</a>
         </main>
